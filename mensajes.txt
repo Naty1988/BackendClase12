@@ -1,0 +1,1 @@
+[{"mail":"pepe@tito.com","fecha":"28/9/2022","msg":"hola desde pepe"},{"mail":"pepe@tito.com","fecha":"28/9/2022","msg":"hola desde pipo"},{"mail":"qwqss@ss","fecha":"28/9/2022","msg":"qq"}]

@@ -20,6 +20,9 @@ const chatPool = document.querySelector('#chatPool')
 function renderProducts(productos) {
     fetch('/plantilla1.hbs').then(response => {
         response.text().then((plantilla) => {
+            // Borrar la pileta de productos
+
+            document.querySelector('#productos').innerHTML = '';
 
             productos.forEach(producto => {
                 const template = Handlebars.compile(plantilla);
@@ -45,7 +48,7 @@ function sendProduct(producto) {
 productsForm.addEventListener('submit', event => {
     event.preventDefault()
 
-    const producto = { mail: nombreInput.value, precio: precioInput.value, url: urlInput.value }
+    const producto = { nombre: nombreInput.value, precio: precioInput.value, url: urlInput.value }
     sendProduct(producto)
 })
 
@@ -55,6 +58,10 @@ function renderChat(messagesArray) {
     
     fetch('/chatPool.hbs').then(response => {
         response.text().then((plantilla) => {
+
+            // Borrar la pileta de chat
+            document.querySelector('#chatPool').innerHTML = '';
+
                 messagesArray.forEach(message => {
                 const template = Handlebars.compile(plantilla);
                 const html = template(message);
@@ -80,7 +87,7 @@ function sendMessage(message) {
 chatForm.addEventListener('submit', event => {
     event.preventDefault()
 
-    const message = { mail: mailInput.value, fecha: Date(), msg: mensajeInput.value }
+    const message = { mail: mailInput.value, fecha: new Date().toLocaleDateString(), msg: mensajeInput.value }
     sendMessage(message)
 
 })
